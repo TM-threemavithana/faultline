@@ -1,0 +1,70 @@
+{
+  "report_title": "Faultline Incident Diagnostic Report — Synthetic Incident Demo (INC-84920)",
+  "note": "SYNTHETIC DEMONSTRATION DATA — generated for documentation and training; contains no live customer or infrastructure identifiers.",
+  "generated_at": "2026-10-29T08:15:22.108420+00:00",
+  "host": "synthetic-app-02.example.internal",
+  "platform": "Linux-6.18.54-x86_64",
+  "overall_severity": "critical",
+  "severity_summary": {
+    "ok": 2,
+    "warning": 1,
+    "critical": 1,
+    "error": 0,
+    "unknown": 0
+  },
+  "total_checks": 4,
+  "checks": [
+    {
+      "check_name": "disk_usage:/var/log",
+      "severity": "critical",
+      "message": "Disk usage CRITICAL on /var/log: 94.2% used (threshold 90.0%)",
+      "evidence": {
+        "mount": "/var/log",
+        "total_gb": 100.0,
+        "used_gb": 94.2,
+        "free_gb": 5.8,
+        "used_pct": 94.2
+      },
+      "remediation": "Disk at /var/log is nearly full. Identify and remove large files: `du -sh /* | sort -rh | head -20`. Consider archiving or expanding the volume.",
+      "timestamp": "2026-10-29T08:15:21.050122+00:00"
+    },
+    {
+      "check_name": "cpu_usage",
+      "severity": "ok",
+      "message": "CPU usage OK: 14.2%",
+      "evidence": {
+        "cpu_percent": 14.2,
+        "logical_cores": 8,
+        "physical_cores": 4
+      },
+      "remediation": "",
+      "timestamp": "2026-10-29T08:15:22.051410+00:00"
+    },
+    {
+      "check_name": "memory_usage",
+      "severity": "warning",
+      "message": "Memory usage WARNING: 86.4% (threshold 85.0%)",
+      "evidence": {
+        "total_gb": 32.0,
+        "available_gb": 4.35,
+        "used_pct": 86.4,
+        "swap_total_gb": 8.0,
+        "swap_used_pct": 12.5
+      },
+      "remediation": "Memory is under pressure. Monitor memory trends: `vmstat -s`. Review recent deployments for memory leaks.",
+      "timestamp": "2026-10-29T08:15:22.095034+00:00"
+    },
+    {
+      "check_name": "tcp:synthetic-db.internal:5432",
+      "severity": "ok",
+      "message": "TCP OK — synthetic-db.internal:5432 is reachable.",
+      "evidence": {
+        "host": "synthetic-db.internal",
+        "port": 5432,
+        "timeout_seconds": 5.0
+      },
+      "remediation": "",
+      "timestamp": "2026-10-29T08:15:22.108401+00:00"
+    }
+  ]
+}
